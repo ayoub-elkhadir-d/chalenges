@@ -1,0 +1,11 @@
+#include <stdio.h>
+void main() {
+    const float canst  =273.15;
+    float c ;
+    printf("enter A value  ; ");
+    scanf("%f",&c);
+    
+    printf("total ; %.2f",canst+c);
+    
+  
+}

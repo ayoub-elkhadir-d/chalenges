@@ -1,0 +1,19 @@
+#include <stdio.h>
+void main() {
+    int num,n1,n2,n3,n4;
+    printf("Enter number :");
+    scanf("%d",&num);
+    n1 = num%10;
+    num =num/10;
+    n2 = num %10;
+    num =num/10;
+    n3 = num %10;
+    num =num/10;
+      n4 = num %10;
+    num =num/10;
+    printf("%d",n1);
+    
+    printf("%d",n2);
+    printf("%d",n3);
+    printf("%d",n4);
+}

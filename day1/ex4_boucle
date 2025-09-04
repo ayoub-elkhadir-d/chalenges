@@ -1,0 +1,13 @@
+#include <stdio.h>
+void main() {
+
+
+int num;
+int sum =0;
+ printf("enter num : ");
+ scanf("%d",&num);
+ for(int a =0;a <= num;a++){
+     if(a % 2 >0){
+         printf("%d \n",a);
+         
+        }}}

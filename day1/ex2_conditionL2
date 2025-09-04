@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main() {
+    int age, typeVoiture, accidents;
+    double primeBase = 500.0; 
+    double prime;
+
+    
+    printf("Entrez age du user  : ");
+    scanf("%d", &age);
+    printf("Entrez le type de voiture (1: sportive, 2: utilitaire, 3: familiale) : ");
+    scanf("%d", &typeVoiture);
+    printf("Entrez le nombre d'accidents dans les 5 dernieres annees : ");
+    scanf("%d", &accidents);
+
+    
+    if (age < 25) {
+        prime = primeBase * 1.5;
+    } else if (age <= 65) {
+        prime = primeBase;
+    } else {
+        prime = primeBase * 1.2;
+    }
+
+    
+    if (typeVoiture == 1) {
+        prime *= 2;
+    } else if (typeVoiture == 2) {
+        prime *= 1.2;
+    } else if (typeVoiture == 3) {
+        prime *= 1.1;
+    }
+
+    
+    if (accidents > 1) {
+        prime *= 1.3; 
+    }
+
+    printf("La prime d'assurance est : %.2lf euros\n", prime);
+
+    return 0;
+}

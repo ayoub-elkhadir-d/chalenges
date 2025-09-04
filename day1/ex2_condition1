@@ -1,0 +1,26 @@
+#include <stdio.h>
+void main() {
+    char ch;
+    printf("Enter char :");
+    scanf("%c",&ch);
+switch(ch){
+    case 'a':
+    printf("yes");
+    break;
+    case 'u':
+    printf("yes");
+    break;
+    case 'i':
+    printf("yes");
+    break;
+    case 'o':
+    printf("yes");
+    break;
+    case 'e':
+    printf("yes");
+    break;
+    default:
+    printf("no");
+    }
+    
+}

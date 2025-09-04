@@ -1,0 +1,14 @@
+#include <stdio.h>
+void main() {
+    char ch;
+    printf("Enter char  :");
+    scanf("%c",&ch);
+    
+    	  if(ch >='A'&&ch <= 'Z'){
+    	printf("majuscul");
+    	}else{
+        printf("char ne pas majuscule");	
+    		}
+  
+    
+}

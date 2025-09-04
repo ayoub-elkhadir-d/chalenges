@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main() {
+    double revenu;
+    int score;
+    int duree;
+
+    
+    printf("Entrez votre revenu annuel (en euros) : ");
+    scanf("%lf", &revenu);
+    printf("Entrez votre score de credit under 10000 : ");
+    scanf("%d", &score);
+    printf("Entrez anee : ");
+    scanf("%d", &duree);
+
+    /
+    if (revenu >= 30000 && score >= 700 && duree <= 10) {
+        printf("Eligibile\n");
+    } else if (revenu >= 30000 && score >= 650 && duree <= 15) {
+        printf("Eligibile avec conditions\n");
+    } else {
+        printf("Non eligibile\n");
+    }
+
+    return 0;
+}

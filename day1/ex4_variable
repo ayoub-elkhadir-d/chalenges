@@ -1,0 +1,12 @@
+
+#include <stdio.h>
+void main() {
+    float km ;
+  
+    printf("enter  km/h   ; ");
+    scanf("%f",&km);
+    
+    printf("total ; %.2f",km * 0.27778);
+    
+  
+}
