@@ -1,0 +1,22 @@
+
+
+#include <stdio.h>
+void main() {
+    char firstname[50] ;
+    printf("enter first name ; ");
+    scanf("%s",firstname);
+    char lastname[60];
+    printf("enter last name ;");
+     scanf("%s",lastname);
+    int age =0;
+    printf("enter age ; ");
+     scanf("%d",&age);
+    char email[120];
+    printf("enter email ;");
+     scanf("%s",email);
+    char gendre ;
+    printf("enter gendre M OR F ;");
+    scanf("%S",&gendre);
+    printf("your first name : %s \n your last name : %s \n your age : %d \n your email : %s \n your gendre : %c",firstname,lastname,age,email,gendre);
+
+}

@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main() {
+    int n;
+    float f = 1; 
+
+    printf("Entre num  positif: ");
+    scanf("%d", &n);
+
+    for(int i = 1; i <= n; i++) {
+        f*= i; 
+    }
+
+    printf("%d!= %.2f\n", n, f);
+    return 0;
+}

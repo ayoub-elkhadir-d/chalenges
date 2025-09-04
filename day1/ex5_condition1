@@ -1,0 +1,20 @@
+void main() {
+#include <stdio.h>
+
+
+    int years;
+    float months, days, hours, minutes, seconds;
+
+    printf("ENTER YEARS : ");
+    scanf("%d", &years);
+
+    
+    months = years * 12;
+    days = years * 365;
+    hours = days * 24;
+    minutes = hours * 60;
+    seconds = minutes * 60;
+
+printf(" mounth :%.2f \n days : %.2f \n hours : %.2f \n minuts : %.2f \n secounds : %.2f",months,days,hours,minutes,seconds);
+  
+}

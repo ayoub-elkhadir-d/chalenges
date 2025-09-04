@@ -1,0 +1,241 @@
+
+
+
+#include <stdio.h>
+void main() {
+    char firstname[50] ;
+    printf("enter first name ; ");
+    scanf("%s",firstname);
+    char lastname[60];
+    printf("enter last name ;");
+     scanf("%s",lastname);
+    int age =0;
+    printf("enter age ; ");
+     scanf("%d",&age);
+    char email[120];
+    printf("enter email ;");
+     scanf("%s",email);
+    char gendre ;
+    printf("enter gendre M OR F ;");
+    scanf("%S",&gendre);
+    printf("your first name : %s \n your last name : %s \n your age : %d \n your email : %s \n your gendre : %c",firstname,lastname,age,email,gendre);
+
+}
+
+
+                ///EX 6
+// Online C compiler to run C program online
+#include <stdio.h>
+void main() {
+    int a ,b;
+    
+    printf("enter a ; ");
+    scanf("%d",&a);
+    printf("enter b ; ");
+    scanf("%d",&b);
+    
+printf("a + b = %d \n a - b = %d \n a * b = %d \n a / b = %d ",a+b,a-b,a*b,a/b);
+  
+}
+
+
+                // ex2
+
+
+#include <stdio.h>
+void main() {
+    const float canst  =273.15;
+    float c ;
+    printf("enter A value  ; ");
+    scanf("%f",&c);
+    
+    printf("total ; %.2f",canst+c);
+    
+  
+}
+
+
+                /// EX 3
+
+
+#include <stdio.h>
+void main() {
+    float km ;
+  
+    printf("enter  km  ; ");
+    scanf("%f",&km);
+    
+    printf("total ; %.2f",km * 1093.61);
+    
+  
+}
+
+                /// EX 4
+
+
+#include <stdio.h>
+void main() {
+    float km ;
+  
+    printf("enter  km/h   ; ");
+    scanf("%f",&km);
+    
+    printf("total ; %.2f",km * 0.27778);
+    
+  
+}
+
+
+             /// EX 5
+
+
+// Online C compiler to run C program online
+#include <stdio.h>
+void main() {
+    float c ;
+  
+    printf("enter C ; ");
+    scanf("%f",&c);
+    
+if(c < 0){
+    printf("solid");
+}else if (c >= 0 && c<100){
+    printf("liquide");
+}
+else{
+    
+    printf("gaz");
+}
+    
+  
+}
+
+
+
+                            /////// EX CONDITION 
+                    //EX1 
+
+// Online C compiler to run C program online
+
+void main() {
+#include <stdio.h>
+
+
+    int years;
+    float months, days, hours, minutes, seconds;
+
+    printf("ENTER YEARS : ");
+    scanf("%d", &years);
+
+    
+    months = years * 12;
+    days = years * 365;
+    hours = days * 24;
+    minutes = hours * 60;
+    seconds = minutes * 60;
+
+printf(" mounth :%.2f \n days : %.2f \n hours : %.2f \n minuts : %.2f \n secounds : %.2f",months,days,hours,minutes,seconds);
+  
+}
+
+////// EX 6 CONDITION
+
+// Online C compiler to run C program online
+
+void main() {
+#include <stdio.h>
+
+
+    int num;
+    printf("enter num : ");
+    scanf("%d",&num);
+    if(num == 0){
+        printf("number 0");
+    }
+   if(num > 0){
+        printf("positif");
+    }
+    if(num < 0){
+        printf("negatif");
+    }
+}
+
+
+
+
+                        ////// BOUCLES////////
+
+//EX1
+// Online C compiler to run C program online
+
+void main() {
+#include <stdio.h>
+
+int num;
+ printf("enter num : ");
+ scanf("%d",&num);
+ for(int a =0;a <=10;a++){
+     
+     printf("%d * %d = %d \n",a,num,a*num);
+     
+ }
+    
+    
+ 
+}
+     ///// EX 3 BOUCLES
+
+// Online C compiler to run C program online
+
+void main() {
+#include <stdio.h>
+
+int num;
+int sum =0;
+ printf("enter num : ");
+ scanf("%d",&num);
+ for(int a =0;a <=num;a++){
+     sum=sum +=a;
+    
+     
+ }
+    printf("%d",sum);
+    
+ 
+}
+
+//////// EX 6 BOUCLES 
+// Online C compiler to run C program online
+
+void main() {
+#include <stdio.h>
+
+int num;
+int sum =0;
+ printf("enter num : ");
+ scanf("%d",&num);
+ for(int a =0;a <= num;a++){
+     if(a % 2 == 0){
+         printf("%d \n",a);
+         
+         
+     } }
+    }
+
+/////////// EX 4 BOUCLES 
+
+
+// Online C compiler to run C program online
+
+void main() {
+#include <stdio.h>
+
+int num;
+int sum =0;
+ printf("enter num : ");
+ scanf("%d",&num);
+ for(int a =0;a <= num;a++){
+     if(a % 2 == 1){
+         printf("%d \n",a);
+         
+        }}}

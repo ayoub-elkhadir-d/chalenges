@@ -1,0 +1,23 @@
+#include <stdio.h>
+void main() {
+    float note;
+    printf("Enter note :");
+    scanf("%f",&note);
+    if(note <10){
+    	printf("Recalé");
+    	}
+    if(note >10.12 && note <12.14){
+    	printf("Passable");
+    	}
+    if(note >12.14 && note <14.16){
+    	printf("Assez bien");
+    	}
+    if(note >14.16 && note <16){
+    	printf("Bien");
+    	}
+    	  if(note >=16){
+    	printf("Très bien");
+    	}
+  
+    
+}

@@ -1,0 +1,11 @@
+#include <stdio.h>
+void main() {
+    int lo ,la,su;
+    printf("Enter longueur :");
+    scanf("%d",&lo);
+    printf("Enter largeur :");
+    scanf("%d",&la);
+    
+    su = lo * la;
+    printf("Surface : %d",su);
+}

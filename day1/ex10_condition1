@@ -1,0 +1,52 @@
+#include <stdio.h>
+void main() {
+    int d,m,y;
+    
+    printf("Enter day  :");
+    scanf("%d",&d);
+    printf("Enter mounth  :");
+    scanf("%d",&m);
+    printf("Enter year  :");
+    scanf("%d",&y);
+    
+    	  switch(m){
+    	  	case 1:
+    	 
+    	  	printf("%d January %d",d,y);
+    	  	case 2:
+    	 
+    	  	printf("%d February %d",d,y);
+    	  	case 3:
+    	 
+    	  	printf("%d March %d",d,y);
+    	  	case 4:
+    	 
+    	  	printf("%d April %d",d,y);
+    	  	case 5:
+    	 
+    	  	printf("%d May %d",d,y);
+    	  	case 6:
+    	 
+    	  	printf("%d June %d",d,y);
+    	  	case 7:
+    	 
+    	  	printf("%d July %d",d,y);
+    	  	case 8:
+    	 
+    	  	printf("%d August %d",d,y);
+    	  	case 9:
+    	 
+    	  	printf("%d September %d",d,y);
+    	  	case 10:
+    	 
+    	  	printf("%d October %d",d,y);
+    	  	case 11:    	 
+    	  	printf("%d November %d",d,y);
+    	  	case 12:
+    	 
+    	  	printf("%d December %d",d,y);
+    	  	}
+    	  	
+  
+    
+}
