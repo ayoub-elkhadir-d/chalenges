@@ -1,0 +1,9 @@
+#include <stdio.h>
+
+int sum(int a,int b){
+    return a +b;
+}
+void main()
+{
+printf("la sum: %d",sum(23,6));
+}
