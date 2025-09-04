@@ -1,0 +1,26 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+void main() {
+    int size;
+    int sum =0;
+printf("enter size ");
+scanf("%d",&size);
+
+int num[size];
+for( int a =0;a < size;a++){
+    int value =0;
+   printf("enter num %d : ",a+1);
+   scanf("%d",&value);
+   num[a]=value;
+}
+ 
+  for(int y =0;y < size;y++){
+ printf("\n %d  ",num[y]);
+      
+  }  
+  for(int y2 =0;y2 < size;y2++){
+   sum = sum += num[y2];
+      
+  } 
+  printf(" \n sum: %d",sum);
+}

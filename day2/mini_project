@@ -1,0 +1,230 @@
+
+#include <stdio.h>
+#include <string.h>
+void main()
+{
+	//Variables temporaires
+	char livre_cherche[1][100];
+	char livre_suprimmer[1][100];
+	char livre_modifier_q[1][100];////Stockage des informations sur les livres que  supprimmer
+	char titres_su[1][100];
+	char auteurs_su[1][100];
+	int prix_su[0];
+	int quantité_su[0];
+	int index_livre_suprimmer;
+	// count of removed livers
+	int cont_rm=0; 
+	//new value of quantité
+	int new_quantité;
+	
+	//user choix
+	int userchoix;
+	char choix2[0];
+    //A faire en courant toujours	
+	int h = 1;
+	
+	int a2,a1,a3,a4,a5; //Variables spécifiques aux tablou
+	
+	int is_f = 0; //Une variable spéciale si nous trouvons l'élément à rechercher
+	
+    int s =0;
+    int size; // size de tous les tableaux
+    
+    
+   
+            printf("\n =====================================");
+           printf("\n Entrez le nombre de livres que vous souhaitez ajouter : ");
+		   scanf("%d", &size);
+		  
+		  //Les tables dans lesquelles nous allons stocker les informations pour chaque livre
+		  
+				char titres[size][100];
+				char auteurs[size][100];
+				int prix[size];
+				int quantité[size];
+	
+	      if(s ==0){
+	      	
+	      	//Saisir les informations du livre
+	   	for(int yu =0;yu < size;yu++){
+            
+			printf("\n  Enter titre (%d) : ",yu+1);
+			scanf("%s", titres[yu]);
+			printf("\n  Enter auteur(%d) : ",yu+1);
+			scanf("%s", auteurs[yu]);
+			printf("\n  Enter prix (%d) : ",yu+1);
+			scanf("%d", &prix[yu]);
+			printf("\n  Enter quantité (%d) : ",yu+1);
+			scanf("%d", &quantité[yu]);
+            }
+		}
+		
+		s++;
+		
+	        	
+		
+  //  L'anneau fonctionne tant que la condition est remplie. Il nous montre le menu.
+  
+	while (h)
+	{
+		 printf(" \n Chow menu ?? y/n : ");
+		scanf(" %c",&choix2[0]);
+		if(choix2[0] =='y'||choix2[0] =='Y'){
+		 printf("\n =============[Menu]================");
+		 printf("\n 2 Afficher tous les livres disponibles ");
+		printf("\n 3 Rechercher un livre par son titre");
+		printf("\n 4 Mettre à jour la quantité d'un livre");
+		printf("\n 5 Supprimer un livre du stock");
+		printf("\n 6 Afficher le nombre total de livres en stock");
+		printf("\n 7 Afficher les livres supprimés");
+		
+		printf("\n 8 Qitter le programme ");
+
+		printf("\n =====================================");
+		printf(" \n Entre your choix : ");
+		scanf("%d",&userchoix);
+
+		
+
+				
+	switch (userchoix)
+		{
+		case 1:
+		
+		printf("  !!  Tu ne peux pas choisir ça. !! ");
+		break;
+		
+		case 2:
+		//show tout les livers
+		
+			for (int a1 = 0; a1 < size-cont_rm; a1++)
+			{
+				printf(" \n Livre %d : Titre : %s | Auteur : %s | Prix :  %d | Quantité : %d \n ", a1 + 1, titres[a1], auteurs[a1], prix[a1], quantité[a1]);
+			}
+		
+			break;
+			
+		case 3:
+		//rechercher sur un livre
+			printf("\n  Enter le titre pour recherche : ");
+			scanf("%s", livre_cherche[0]);
+			is_f = 0;  
+          // loop in all tablou livres
+			for (a2 = 0; a2 <size-cont_rm; a2++)
+			{
+				
+				if (strcmp(titres[a2], livre_cherche[0]) == 0)
+				{
+					is_f = 1; // livre is Pas trouvé 
+					
+					printf(" \n Livre %d : Titre : %s | Auteur : %s | Prix :  %d | Quantité : %d \n ", a2 + 1, titres[a2], auteurs[a2], prix[a2], quantité[a2]);
+					break;
+				}
+			}
+
+			if (is_f == 0)  //Pas trouvé
+			{
+				printf("\n !! No result !! \n");
+				break;
+			}
+			
+   
+   //pour modifier les quantité 
+		case 4:
+		printf("  Entrez le nom du livre à modifier le quantité : ");
+		scanf("%s",livre_modifier_q[0]); //get name;
+		
+		for (a3 = 0; a3 <size; a3++) //loop in all index
+			{
+				if (strcmp(titres[a3], livre_modifier_q[0]) == 0){//trouvé
+					is_f = 1;
+					printf(" Ajouter la quantité : "); //entrer le nouveux quantité
+					scanf("%d",&new_quantité);
+					quantité[a3]=new_quantité;
+					break;
+				}
+			}
+ 
+ //Pas trouvé
+			if (is_f == 0)
+			{
+				printf("\n  !!  No result !!  \n");
+			}
+		break;
+
+		case 5://suprimmer un livre 
+		printf("  Entrez le nom du livre pour suprimmer  : ");
+		scanf("%s",livre_suprimmer[0]);
+		
+		
+		for(int a5 =0;a5<size;a5++){//loop in all index
+		if(strcmp(titres[a5],livre_suprimmer[0])==0){ //found
+		
+		
+		index_livre_suprimmer = a5; // Get the index of the element  to delete
+		
+		//copy the values 
+		strcpy(titres_su[0],titres[a5]);
+		strcpy(auteurs_su[0],auteurs[a5]);
+		prix_su[0] = prix[a5] ; 
+		quantité_su[0] = quantité[a5];
+					
+					}
+			
+			
+			}
+			cont_rm ++; // It counts the number of times we delete books.
+			
+			
+			//start at the element index and switch the values
+			for( a4 = index_livre_suprimmer;a4<size;a4++){
+		    	
+			strcpy(titres[a4],titres[a4 +1]);
+			strcpy(auteurs[a4],auteurs[a4+1]);
+			prix[a4] = prix[a4+1];
+	   	quantité[a4] = quantité[a4+1];
+			
+		}
+		         // add the element deleted at the last
+				strcpy(titres[size],titres_su[0]);
+				strcpy(auteurs[size],auteurs_su[0]);
+				prix[size]=prix_su[0];
+				quantité[size]=quantité_su[0];
+       
+
+			break;
+
+		case 6:
+		
+		printf("\n le nombre total de livres en stock et %d ",size-cont_rm);
+
+			break;
+         case 7:
+         //for (a5 = size-cont_rm; a5<size+1; a5++)
+//			{
+//			      printf(" \n Livre %d : Titre : %s | Auteur : %s | Prix :  %d | Quantité : %d \n ", a5 + 1, titres[a5], auteurs[a5], prix[a5], quantité[a5]);
+//			      
+//			      }
+         
+         break;
+         
+         
+		case 8:
+			h = 0;
+			
+		default:
+		      printf("No choix pour se number");
+		     break;
+		}
+		}
+		  
+		  else{//break the while loop
+			
+		h = 0;
+		
+			}
+	
+	}
+
+
+}

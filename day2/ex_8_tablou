@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+void main() {
+    int n, i, j;
+
+    
+    printf("enter lenth of tablou : ");
+    scanf("%d", &n);
+
+    int arr[n];
+   int arr2[n];
+    
+    for(i = 0; i < n; i++) {
+        printf("enter num %d : ", i + 1);
+        scanf("%d", &arr[i]);
+    }
+
+for(int u =0;u<n;u++){
+      arr2[u]=arr[u];
+    
+    }
+    
+    
+   printf("original tablou :");
+    for(i = 0; i < n; i++) {
+        printf(" %d ", arr[i]);
+    }
+printf(" \n copy tablou :");
+    for(int ic = 0; ic < n; ic++) {
+        printf(" %d ", arr[ic]);
+    }
+   
+}

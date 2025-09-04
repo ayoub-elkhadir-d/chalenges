@@ -1,0 +1,15 @@
+///// EX 1
+
+
+#include <stdio.h>
+void main() {
+
+
+int num[5]={7,88,97,7,87};
+for( int a =0;a < 5;a++){
+    
+    printf("%d \n",num[a]);
+}
+ 
+    
+}
