@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+void main() {
+    int n, i;
+   
+
+    
+    printf("enter lenth of tablou : ");
+    scanf("%d", &n);
+ 
+    int arr[n];
+    
+   
+    
+    for(i = 0; i < n; i++) {
+        printf("enter num %d : ", i + 1);
+        scanf("%d", &arr[i]);
+    }
+    printf("result : ");
+    for(int z = 0;z<n;z++){
+    	if(arr[z]% 2>0){
+    		printf("%d ,",arr[z]);
+    		}
+    	
+    	}
+    
+   
+
+    
+}

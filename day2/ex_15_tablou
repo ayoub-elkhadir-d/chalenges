@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+void main() {
+    int n1,n2, i;
+   
+
+    
+    printf("enter lenth of tablou 1 : ");
+    scanf("%d", &n1);
+ printf("enter lenth of tablou 2 : ");
+    scanf("%d", &n2);
+    int arr[n1+n2];
+    
+   
+    
+    for(i = 0; i < n1; i++) {
+        
+        printf("enter num of tablou 1 %d : ", i + 1);
+        scanf("%d", &arr[i]);
+    }
+        
+for(i = 0; i < n2; i++) {
+        
+        printf("enter num of tablou 2 %d : ", i + 1);
+        scanf("%d", &arr[n1+i]);
+        
+        
+    }
+   
+    printf("result : ");
+    for(int z = 0;z<n1+n2;z++){
+    	
+    		printf("%d ,",arr[z]);
+    		
+    	
+    	}
+    
+   
+
+    
+}

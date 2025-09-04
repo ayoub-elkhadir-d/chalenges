@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+void main() {
+    int n, i;
+   float  sum =0;
+
+    
+    printf("enter lenth of tablou : ");
+    scanf("%d", &n);
+ 
+    int arr[n];
+    
+   
+    
+    for(i = 0; i < n; i++) {
+        
+        printf("enter num  %d : ", i + 1);
+        scanf("%d", &arr[i]);
+    sum = sum += arr[i];
+    }
+        printf("sum : %.2f",(float)sum/n);
+
+  
+    
+}

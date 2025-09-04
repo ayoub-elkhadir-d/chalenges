@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+void main() {
+    int n, i, j,e;
+    int is_true=0;
+
+    
+    printf("enter lenth of tablou : ");
+    scanf("%d", &n);
+ printf("enter element search : ");
+    scanf("%d", &e);
+    int arr[n];
+    int s = sizeof(arr)/sizeof(arr[0]);
+   
+    
+    for(i = 0; i < n; i++) {
+        printf("enter num %d : ", i + 1);
+        scanf("%d", &arr[i]);
+    }
+    for(int yi =0;yi<=n;yi++){
+    	if(arr[yi]==e){
+    	is_true=1;
+    	printf("result : true");
+    	}
+    	if(yi ==n && arr[yi] != e&& is_true ==0){
+    		printf("result : false");
+    		}
+    	}
+    
+
+    
+   
+
+    
+   
+}

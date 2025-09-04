@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+void main() {
+    int n, i, j;
+
+    
+    printf("enter lenth of tablou : ");
+    scanf("%d", &n);
+
+    int arr[n];
+   
+    
+    for(i = 0; i <= n; i++) {
+        printf("enter num %d : ", i + 1);
+        scanf("%d", &arr[i]);
+    }
+    
+    
+int s =sizeof(arr)/sizeof(arr[0]);
+int tm;
+
+for(int u =0;u<n/2;u++){
+    tm =  arr[u] ;
+    arr[u]=arr[s-u];
+    arr[s-u]=tm;
+    
+    }
+    
+   
+printf(" \n  result  :");
+    for(int ic = 0; ic < n; ic++) {
+        printf(" %d ", arr[ic]);
+    }
+   
+}
