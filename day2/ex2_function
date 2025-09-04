@@ -5,5 +5,5 @@ int sum(int a,int b){
 }
 void main()
 {
-printf("la sum: %d",sum(2,6));
+printf("la multipliplication : %d",sum(2,6));
 }
