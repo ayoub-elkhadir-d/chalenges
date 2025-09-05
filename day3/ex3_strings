@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+void main() {
+	
+	
+	char str1[100];
+	char str2[100];
+	int size1,size2;
+	printf("enter Chaînes de Caractères 1 : ");
+	scanf("%s",str1);
+	printf("enter Chaînes de Caractères 2 : ");
+	scanf("%s",str2);
+	
+	size1 = strlen(str1);
+	
+	
+	
+	
+	size2 = strlen(str2);
+	
+	for(int y =0;y < size2+size1;y++){
+		
+		str1[size1+y]=str2[y];
+		
+		}
+	      str1[size2+size1]= '\0';
+	
+printf("%s",str1);
+
+    
+}
