@@ -1,0 +1,18 @@
+#include <stdio.h>
+void main() {
+	
+	
+	char str[]={"You code"};
+	for(int a =0;1;a++){
+		
+		if(str[a]=='\0'){
+		   printf("%d",a);	
+			break;
+			}
+			
+		}
+	
+
+
+    
+}
