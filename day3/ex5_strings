@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+void main() {
+	
+	
+	char str[100];
+	char t;
+	int size;
+	printf("enter Chaînes de Caractères  : ");
+	scanf("%s",str);
+	
+	
+	size=strlen(str)-1;
+	
+	
+		for(int y =0;y < size/2;y++){
+		          
+	           t = str[size-y];
+	           
+	       str[size-y] = str[y];
+	       
+	       str[y] = t;
+	       
+	             }
+			
+			printf("%s",str);
+			
+
+
+    
+}
