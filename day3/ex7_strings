@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <string.h>
+void main()
+{
+	char str[100];
+   int a,y;
+	
+	printf("enter Chaînes de Caractères  : ");
+	scanf("%s", str);
+	
+	
+
+	for (y = 0; str[y] != '\0' ; y++)
+	{
+		a = (int)str[y];
+		printf("%c",a-32);
+	}
+	
+}
