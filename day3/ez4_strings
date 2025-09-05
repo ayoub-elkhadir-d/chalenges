@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <string.h>
+void main() {
+	
+	
+	char str1[100];
+	char str2[100];
+	int size1,size2;
+	printf("enter Chaînes de Caractères 1 : ");
+	scanf("%s",str1);
+	printf("enter Chaînes de Caractères 2 : ");
+	scanf("%s",str2);
+	
+	
+	
+	size1=strlen(str1);
+	size2 =strlen(str2);
+		
+	if(size1==size2){
+		for(int y =0;y < size1;y++){
+	
+		if(str1[y]==str2[y]){
+		   	if(y+1== size1){
+		         printf("is equal");
+				 }
+			continue;
+		   }
+			
+			
+			else{ 
+			
+			printf("is not  equal");
+			break; 
+			}
+				
+		
+						}
+		}
+		
+		else{
+		     printf("is not  equal");
+		     
+		     }
+	      
+
+
+    
+}
