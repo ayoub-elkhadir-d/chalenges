@@ -1,0 +1,13 @@
+#include <stdio.h>
+void main() {
+	
+	
+	char str[100];
+	
+	printf("enter Chaînes de Caractères :");
+	scanf("%s",str);
+	
+	printf(" \n %s" ,str);
+
+    
+}
