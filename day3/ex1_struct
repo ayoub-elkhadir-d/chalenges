@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+struct person{
+char first_name[100];
+char last_name[100];
+int age;
+};
+int main() {
+	
+struct person p={"ayoub","elkhadir",20};
+
+
+printf("%s | %s  | %d",p.first_name,p.last_name,p.age);
+
+		
+	}
