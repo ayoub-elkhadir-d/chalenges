@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+struct student{
+char first_name[100];
+char last_name[100];
+int notes[100];
+};
+int main() {
+
+struct student s={"ayoub","elkhadir",{17,15,18}};
+
+
+printf("%s | %s | %d |%d |%d",s.first_name,s.last_name,s.notes[0],s.notes[1],s.notes[2]);
+
+
+		
+	}
