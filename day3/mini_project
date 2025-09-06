@@ -1,0 +1,194 @@
+#include <stdio.h>
+#include <string.h>
+int count =0;
+int max =1;
+struct contact {
+	char contact_name[100];
+	char contact_number[50];
+	char contact_email[100];
+	
+	};
+struct contact contacts[100];
+void line(){
+	
+	printf("\n=======================================");
+	
+	}
+void clear_buffer() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
+void rechercher(){
+	char namerechercher[100];
+	int fo =0;
+	printf("Enter name : ");
+ 	
+fgets(namerechercher, sizeof(namerechercher), stdin);
+namerechercher[strcspn(namerechercher, "\n")] = '\0';
+
+for(int r =0;r< count;r++){
+	if (strcmp(namerechercher, contacts[r].contact_name) == 0){
+		fo++;
+		printf("\n contact %d : name : %s | number : %s | email : %s ", r,contacts[r].contact_name,contacts[r].contact_number,contacts[r].contact_email);
+		
+	}if(fo ==0 && r+1 == count){
+		printf("!! NO RESULT !!");
+		}
+	}
+	}
+void supprimer(){
+ 
+ char namesupprimer[max];
+ 
+ printf("Enter name : ");
+ 	
+fgets(namesupprimer, sizeof(namesupprimer), stdin);
+
+namesupprimer[strcspn(namesupprimer, "\n")] = '\0';
+      
+      for (int i = 0; i < count; i++) {
+    if (strcmp(namesupprimer, contacts[i].contact_name) == 0) {
+        
+        for (int j = i; j < count - 1; j++) {
+            contacts[j] = contacts[j + 1];
+        }
+        count--;
+        printf("Contact supprimé avec succès\n");
+        return;
+    }
+}
+printf("Contact introuvable\n");
+ 
+ 
+ }
+ void add_contact(){
+ 	if(count <= max){
+ 	
+ 	printf("Enter name : ");
+ 	fgets(contacts[count].contact_name,sizeof(contacts[count].contact_name),stdin);
+    		    contacts[count].contact_name[strcspn(contacts[count].contact_name, "\n")] = '\0';
+    		    
+ 	printf("Enter number : ");
+ 	fgets(contacts[count].contact_number,sizeof(contacts[count].contact_number),stdin);
+    			
+    		    contacts[count].contact_number[strcspn(contacts[count].contact_number, "\n")] = '\0';
+    		    
+ 	printf("Enter email : ");
+ 	fgets(contacts[count].contact_email,sizeof(contacts[count].contact_email),stdin);
+    			
+    		    contacts[count].contact_email[strcspn(contacts[count].contact_email, "\n")] = '\0';
+      line();
+ 	count ++;
+ 	printf("Ajouté");
+ 	}
+ 	
+ 	else{
+ 	line();
+ 	printf("Dépassé la limite maximale");
+ 	}
+ }
+ 	
+ 	
+ void getall_contact(){
+ 	line();
+ 	for(int a = 0;a <count;a++){
+ 		
+ 		printf("\n contact %d : name : %s | number : %s | email : %s ", a,contacts[a].contact_name,contacts[a].contact_number,contacts[a].contact_email);
+ 		
+ 		}
+ 		line();
+ 	
+ 	}
+ void update_contact(){
+ 	char n[100];
+ 	int choix;
+ 	printf("Enter name : ");
+ 	fgets(n,sizeof(n),stdin);
+ 	n[strcspn(n, "\n")] = '\0';
+    for(int s =0;s< count;s++){
+    	if(strcmp(n,contacts[s].contact_name)==0){
+    		
+    		printf(" \n1)Nom \n 2)Numéro \n 3)E-mail ");
+    		printf("\nQue souhaitez-vous modifier ?  :");
+    		scanf("%d",&choix);
+    		clear_buffer();
+    		switch(choix){
+    			case 1:
+    			printf("Enter New name : ");
+    			
+    		    fgets(contacts[s].contact_name,sizeof(contacts[s].contact_name),stdin);
+    		    contacts[s].contact_name[strcspn(contacts[s].contact_name, "\n")] = '\0';
+    		    
+    			printf("succes");
+    			
+    			break;
+    			
+    			case 2:
+    			printf("Enter New numero : ");
+    			fgets(contacts[s].contact_number,sizeof(contacts[s].contact_number),stdin);
+    			
+    		    contacts[s].contact_number[strcspn(contacts[s].contact_number, "\n")] = '\0';
+    		    
+    			printf("succes");
+    			break;
+    			
+    			case 3:
+    			printf("Enter New email : ");
+    			
+    		    fgets(contacts[s].contact_email,sizeof(contacts[s].contact_email),stdin);
+    			
+    		    contacts[s].contact_email[strcspn(contacts[s].contact_email, "\n")] = '\0';
+    			break;
+    			
+    			}
+    		
+    		}
+    	
+    	}
+ 	
+ 	}
+ 	
+ 	void menu(){
+ 		int choix;
+ 		while(1){
+ 			line();
+ 		printf("\n click enter to chow menu ");
+ 		
+ 		if(getchar()=='\n'){
+ 		printf("\n 1. Ajouter un Contact");
+ 		printf("\n 2. Modifier un Contact");
+ 		printf("\n 3 . Supprimer un Contact");
+ 		printf("\n 4. Afficher Tous les Contacts");
+ 		printf("\n 5. Rechercher un Contact");
+ 		
+ 		printf("\n Entre choix : ");
+ 		scanf("%d",&choix);
+ 		clear_buffer();
+ 		switch(choix){
+ 			case 1:
+ 			add_contact();
+ 			break;
+ 			case 2:
+ 			update_contact();
+ 			break;
+ 			case 3:
+ 			supprimer();
+ 			break;
+ 			
+ 			case 4:
+ 			getall_contact();
+ 			break;
+ 			case 5:
+ 			rechercher();
+ 			break;
+ 			
+ 			
+ 			
+ 			}
+ 		}else{break;}
+ 		}
+ 		
+ 		}
+void  main() {
+   menu();
+}
