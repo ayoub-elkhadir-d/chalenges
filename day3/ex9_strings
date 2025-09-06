@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char chaine[100];
+    char resultat[100];
+    int i, j = 0;
+
+    printf("Entrez une chaine : ");
+    fgets(chaine, sizeof(chaine), stdin);
+
+    for (i = 0; chaine[i] != '\0'; i++) {
+        if (chaine[i] != ' ') {
+            resultat[j] = chaine[i];
+            j++;
+        }
+    }
+    resultat[j] = '\0';
+
+    printf("Chaine sans espaces : %s\n", resultat);
+
+    return 0;
+}
