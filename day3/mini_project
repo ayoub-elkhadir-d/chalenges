@@ -40,6 +40,7 @@ void rechercher() {
         }
         if (fo == 0 && r + 1 == count) {
             printf("!! NO RESULT !!");
+            line();
         }
     }
 }
@@ -59,10 +60,12 @@ void supprimer() {
                 contacts[j] = contacts[j + 1];
             }
             count--;
+            line();
             printf("Contact supprimé avec succès\n");
             return;
         }
     }
+    line();
     printf("Contact introuvable\n");
 }
 
@@ -83,8 +86,9 @@ void add_contact() {
         fgets(contacts[count].contact_email, sizeof(contacts[count].contact_email), stdin);
         contacts[count].contact_email[strcspn(contacts[count].contact_email, "\n")] = '\0';
         
-        line();
+        
         count++;
+        line();
         printf("\n !! Ajouté !!");
     } else {
         line();
@@ -96,7 +100,7 @@ void add_contact() {
 void getall_contact() {
     line();
     for (int a = 0; a < count; a++) {
-        printf("\n contact %d : name : %s | number : %s | email : %s ", a, contacts[a].contact_name, contacts[a].contact_number, contacts[a].contact_email);
+        printf("\n contact %d : name : %s | number : %s | email : %s ", a+1, contacts[a].contact_name, contacts[a].contact_number, contacts[a].contact_email);
     }
     line();
 }
@@ -111,6 +115,7 @@ void update_contact() {
 
     for (int s = 0; s < count; s++) {
         if (strcmp(n, contacts[s].contact_name) == 0) {
+            line();
             printf(" \n1)Nom \n2)Numéro \n3)E-mail ");
             printf("\nQue souhaitez-vous modifier ? : ");
             scanf("%d", &choix);
@@ -122,6 +127,7 @@ void update_contact() {
                     fgets(contacts[s].contact_name, sizeof(contacts[s].contact_name), stdin);
                     contacts[s].contact_name[strcspn(contacts[s].contact_name, "\n")] = '\0';
                     printf("succes");
+                    line();
                     break;
 
                 case 2:
@@ -129,81 +135,21 @@ void update_contact() {
                     fgets(contacts[s].contact_number, sizeof(contacts[s].contact_number), stdin);
                     contacts[s].contact_number[strcspn(contacts[s].contact_number, "\n")] = '\0';
                     printf("succes");
+                    line();
                     break;
 
                 case 3:
                     printf("Enter New email : ");
                     fgets(contacts[s].contact_email, sizeof(contacts[s].contact_email), stdin);
                     contacts[s].contact_email[strcspn(contacts[s].contact_email, "\n")] = '\0';
+                       printf("succes");
+                       line();
                     break;
             }
         }
     }
 }
 
-// Menu
-void menu() {
-    int choix;
-    while (1) {
-        line();
-        printf("\n click enter to show menu ");
-        
-        if (getchar() == '\n') {
-            printf("\n 1. Ajouter un Contact");
-            printf("\n 2. Modifier un Contact");
-            printf("\n 3. Supprimer un Contact");
-            printf("\n 4. Afficher Tous les Contacts");
-            printf("\n 5. Rechercher un Contact");
-            
-            printf("\n Entre choix : ");
-            scanf("%d", &choix);
-            clear_buffer();
-
-            switch (choix) {
-                case 1: add_contact(); break;
-                case 2: update_contact(); break;
-                case 3: supprimer(); break;
-                case 4: getall_contact(); break;
-                case 5: rechercher(); break;
-            }
-        } else {
-            break;
-        }
-    }
-}
-
-// Fonction main
-void main() {
-    menu();
-}    		    
-    			printf("succes");
-    			
-    			break;
-    			
-    			case 2:
-    			printf("Enter New numero : ");
-    			fgets(contacts[s].contact_number,sizeof(contacts[s].contact_number),stdin);
-    			
-    		    contacts[s].contact_number[strcspn(contacts[s].contact_number, "\n")] = '\0';
-    		    
-    			printf("succes");
-    			break;
-    			
-    			case 3:
-    			printf("Enter New email : ");
-    			
-    		    fgets(contacts[s].contact_email,sizeof(contacts[s].contact_email),stdin);
-    			
-    		    contacts[s].contact_email[strcspn(contacts[s].contact_email, "\n")] = '\0';
-    			break;
-    			
-    			}
-    		
-    		}
-    	
-    	}
- 	
- 	}
  	
  	void menu(){
  		int choix;
