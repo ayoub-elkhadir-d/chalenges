@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+struct Rectangle {
+    int longueur;
+    int largeur;
+};
+
+int aire(struct Rectangle r) {
+    return r.longueur * r.largeur;
+}
+
+int main() {
+    struct Rectangle rect = {5, 3};
+
+    printf("Aire = %d\n", aire(rect));
+
+    return 0;
+}
