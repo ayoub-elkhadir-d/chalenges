@@ -1,8 +1,6 @@
 #include <stdio.h>
 void main() {
-	
-	
-	char str[]={"You code"};
+char str[]={"You code"};
 	for(int a =0;1;a++){
 		
 		if(str[a]=='\0'){
