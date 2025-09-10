@@ -1,157 +1,399 @@
 #include <stdio.h>
 #include <string.h>
 
-int count = 0; // Nombre actuel de contacts
-int max = 100; // Limite maximale de contacts
+int count = 10; // Nombre actuel de contacts
+int trouver =1;
+int boucle_while =0;
+char nom_et_prenom_pour_modifier[50];
 
-// Définition de la structure pour un contact
-struct contact {
-    char contact_name[100];
-    char contact_number[50];
-    char contact_email[100];
+struct Equipe{
+int id;
+char nom_et_prenom[50];
+int numeroMaillot;
+char poste[11];
+int age;
+int buts;
+int statu;
 };
+struct Equipe equip[100] = {
+    {0,"ayoub Benzema", 9,"attaquant",35,210,0},
+    {1,"karim Benzema", 9,"attaquant",35,210,0},
+    {2,"kianluigi Donnarumma", 99, "gardien", 25, 0,1},
+    {3,"airgil van Dijk", 4, "défenseur", 33, 15,0},
+    {4,"luka Modric", 10, "milieu", 39, 45,0},
+    {5,"kylian Mbappé", 7, "attaquant", 26, 220,1},
+    {6,"manuel Neuer", 1, "gardien", 38, 0,0},
+    {7,"sergio Ramos", 4, "défenseur", 39, 105,0},
+    {8,"sevin De Bruyne", 17, "milieu", 34, 95,0},
+    {9,"robert Lewandowski", 9, "attaquant", 37, 320,0},
+    {10,"achraf Hakimi", 2, "défenseur",27,25,0}
+};
+int choix_de_post;
 
-struct contact contacts[100]; // Tableau de contacts
-
-// Fonction pour afficher une ligne de séparation
-void line() {
-    printf("\n=======================================");
-}
-
-// Fonction pour remove  le buffer 
 void clear_buffer() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 }
 
-// Fonction  rechercher un contact nome
-void rechercher() {
-    char namerechercher[100];
-    int fo = 0;
-    printf("Enter name : ");
+
+
+void line(){
+
+  printf("\n --------------------------------------\n");
+}
+
+
+
+//---------------------------------------------------------------------------------
+
+void Ajouter_un_joueur(int choix_count_joeur){
     
-    fgets(namerechercher, sizeof(namerechercher), stdin);
-    namerechercher[strcspn(namerechercher, "\n")] = '\0'; // Supprimer le \n
+for(int count_joeur =0;count_joeur<choix_count_joeur;count_joeur++){
+boucle_while =0;
+clear_buffer();
+ printf("\nEnter nom et prenom de jouer %d: ",count_joeur+1);
+  
+  fgets(equip[count].nom_et_prenom, sizeof(equip[count].nom_et_prenom), stdin);
+  equip[count].nom_et_prenom[strcspn(equip[count].nom_et_prenom, "\n")] = '\0';
 
-    for (int r = 0; r < count; r++) {
-        if (strcmp(namerechercher, contacts[r].contact_name) == 0) {
-            fo++;
-            printf("\n contact %d : name : %s | number : %s | email : %s ", r, contacts[r].contact_name, contacts[r].contact_number, contacts[r].contact_email);
-        }
-        if (fo == 0 && r + 1 == count) {
-            printf("!! NO RESULT !!");
-            line();
-        }
+int char_n =0;
+
+ while (equip[count].nom_et_prenom[char_n] != '\0')
+ {
+  if (equip[count].nom_et_prenom[char_n]>='A'&&equip[count].nom_et_prenom[char_n]<='Z')
+  {
+    equip[count].nom_et_prenom[char_n] =equip[count].nom_et_prenom[char_n] + 32;
+  }
+
+  char_n++;
+ }
+ 
+  printf("Enter numero Maillot de joeur %d: ",count_joeur+1);
+  scanf("%d",&equip[count].numeroMaillot);
+while (boucle_while != 1)
+{
+  printf("choisir le poste :\n1)gardien\n2)défenseur\n3)milieu\n4)attaquant");
+  printf("\n Enter num de poste de joeur %d :",count_joeur+1);
+  scanf("%d",&choix_de_post);
+  if(choix_de_post==1||choix_de_post==2||choix_de_post==3||choix_de_post==4){
+    boucle_while =1;
+  switch(choix_de_post){
+       case 1:
+       strcpy(equip[count].poste,"gardien");
+       break;
+       case 2:
+       strcpy(equip[count].poste,"défenseur");
+       break;
+       case 3:
+       strcpy(equip[count].poste,"milieu");
+       break;
+       case 4:
+       strcpy(equip[count].poste,"attaquant");
+       break;
+
+       
+  }
+
+}else{
+    printf("\n !! choix incorect !!\n");
+}
+}
+
+printf("Enter age  de joeur %d : ",count_joeur+1);
+scanf("%d",&equip[count].age);
+
+printf("Enter buts de joeur %d : ",count_joeur+1);
+scanf("%d",&equip[count].buts);
+equip[count].statu=0;
+line();
+count ++;
+equip[count].id+=1;
     }
 }
 
-// Fonctionsupprimer un contact  name3
-void supprimer() {
-    char namesupprimer[max];
-    
-    printf("Enter name : ");
-    fgets(namesupprimer, sizeof(namesupprimer), stdin);
-    namesupprimer[strcspn(namesupprimer, "\n")] = '\0';
+//---------------------------------------------------------------------------------
+void Afficher_un_joueur(int choix_Affichage){
+    switch(choix_Affichage){
+case 1: // Tri alphabétique par nom (seulement le premier nom)
+    for (int step = 0; step < count - 1; step++) {
+        int min_idx = step;
+        for (int i = step + 1; i < count; i++) {
+          
 
-    for (int i = 0; i < count; i++) {
-        if (strcmp(namesupprimer, contacts[i].contact_name) == 0) {
-            // Décaler les contacts pour combler le vide
-            for (int j = i; j < count - 1; j++) {
-                contacts[j] = contacts[j + 1];
-            }
-            count--;
-            line();
-            printf("Contact supprimé avec succès\n");
-            return;
-        }
-    }
-    line();
-    printf("Contact introuvable\n");
-}
-
-// Fonction  ajouter un nouveau contact
-void add_contact() {
-    if (count <= max) {  //check if not max full
-        printf("Enter name : ");
-        
-        fgets(contacts[count].contact_name, sizeof(contacts[count].contact_name), stdin);
-        
-        contacts[count].contact_name[strcspn(contacts[count].contact_name, "\n")] = '\0';
-        
-        printf("Enter number : ");
-        fgets(contacts[count].contact_number, sizeof(contacts[count].contact_number), stdin);
-        contacts[count].contact_number[strcspn(contacts[count].contact_number, "\n")] = '\0';
-        
-        printf("Enter email : ");
-        fgets(contacts[count].contact_email, sizeof(contacts[count].contact_email), stdin);
-        contacts[count].contact_email[strcspn(contacts[count].contact_email, "\n")] = '\0';
-        
-        
-        count++;
-        line();
-        printf("\n !! Ajouté !!");
-    } else {
-        line();
-        printf("Dépassé la limite maximale");
-    }
-}
-
-// Fonction  afficher tous les contacts
-void getall_contact() {
-    line();
-    for (int a = 0; a < count; a++) {
-        printf("\n contact %d : name : %s | number : %s | email : %s ", a+1, contacts[a].contact_name, contacts[a].contact_number, contacts[a].contact_email);
-    }
-    line();
-}
-
-// Fonction  mettre à jour un contact
-void update_contact() {
-    char n[100];
-    int choix;
-    printf("Enter name : ");
-    fgets(n, sizeof(n), stdin);
-    n[strcspn(n, "\n")] = '\0';
-
-    for (int s = 0; s < count; s++) {
-        if (strcmp(n, contacts[s].contact_name) == 0) {
-            line();
-            printf(" \n1)Nom \n2)Numéro \n3)E-mail ");
-            printf("\nQue souhaitez-vous modifier ? : ");
-            scanf("%d", &choix);
-            clear_buffer();
-
-            switch (choix) {
-                case 1:
-                    printf("Enter New name : ");
-                    fgets(contacts[s].contact_name, sizeof(contacts[s].contact_name), stdin);
-                    contacts[s].contact_name[strcspn(contacts[s].contact_name, "\n")] = '\0';
-                    printf("succes");
-                    line();
-                    break;
-
-                case 2:
-                    printf("Enter New numero : ");
-                    fgets(contacts[s].contact_number, sizeof(contacts[s].contact_number), stdin);
-                    contacts[s].contact_number[strcspn(contacts[s].contact_number, "\n")] = '\0';
-                    printf("succes");
-                    line();
-                    break;
-
-                case 3:
-                    printf("Enter New email : ");
-                    fgets(contacts[s].contact_email, sizeof(contacts[s].contact_email), stdin);
-                    contacts[s].contact_email[strcspn(contacts[s].contact_email, "\n")] = '\0';
-                       printf("succes");
-                       line();
-                    break;
+         
+           
+            if (strcmp(equip[i].nom_et_prenom, equip[min_idx].nom_et_prenom) > 0) {
+                min_idx = i;
             }
         }
+
+       
+        if (min_idx != step) {
+            struct Equipe temp = equip[step];
+            equip[step] = equip[min_idx];
+            equip[min_idx] = temp;
+        }
+
+             if(equip[min_idx].statu != 1){
+                       printf("\nJoueur |id : %d|Nom et prénom : %s|Maillot : %d |Poste : %s|Age : %d|Buts : %d\n", 
+                        equip[step].id, equip[step].nom_et_prenom, equip[step].numeroMaillot, equip[step].poste, equip[step].age, equip[step].buts);
+                       }
+                       }
+         break;
+
+
+case 2: // Tri par âg
+
+        
+            for (int step = 0; step < count; step++) {
+                int min_idx = step;
+                for (int i = step + 1; i < count; i++) {
+                    if (equip[i].age < equip[min_idx].age){
+                        min_idx = i;
+                    }
+                }
+                if(min_idx != step){
+                    struct Equipe temp = equip[step];
+                    equip[step] = equip[min_idx];
+                    equip[min_idx] = temp;
+                }
+                       printf("\nJoueur %d :\nNom et prénom : %s|Maillot : %d |Poste : %s|Age : %d|Buts : %d\n", 
+                        step + 1, equip[step].nom_et_prenom, equip[step].numeroMaillot, equip[step].poste, equip[step].age, equip[step].buts);
+             }
+            break;
+
+  case 3:
+
+
+  boucle_while=0;
+  while (boucle_while != 1)
+{
+  printf("Afficher les joueurs par :\n1)gardien\n2)défenseur\n3)milieu\n4)attaquant");
+  printf("\n Enter num de poste :");
+  scanf("%d",&choix_de_post);
+  if(choix_de_post==1||choix_de_post==2||choix_de_post==3||choix_de_post==4){
+ 
+    boucle_while =1;
+  switch(choix_de_post){
+   
+       case 1:
+      
+       for (int i = 0; i < count; i++) {
+           
+       if(strcmp(equip[i].poste,"gardien")==0){
+      
+          printf("\nJoueur %d :|Nom et prénom : %s|Maillot : %d |Poste : %s|Age : %d|Buts : %d\n", 
+                        i + 1, equip[i].nom_et_prenom, equip[i].numeroMaillot, equip[i].poste, equip[i].age, equip[i].buts);
+     
+
+       }
+
+       }
+      
+       break;
+       case 2:
+              for (int i = 0; i < count; i++) {
+            
+       if(strcmp(equip[i].poste,"défenseur")==0){
+          printf("\nJoueur %d :|Nom et prénom : %s|Maillot : %d |Poste : %s|Age : %d|Buts : %d\n", 
+                        i + 1, equip[i].nom_et_prenom, equip[i].numeroMaillot, equip[i].poste, equip[i].age, equip[i].buts);
+     
+
+       }
+
+       }
+
+       break;
+       case 3:
+       for (int i = 0; i < count; i++) {
+            
+       if(strcmp(equip[i].poste,"milieu")==0){
+          printf("\nJoueur %d :|Nom et prénom : %s|Maillot : %d |Poste : %s|Age : %d|Buts : %d\n", 
+                        i + 1, equip[i].nom_et_prenom, equip[i].numeroMaillot, equip[i].poste, equip[i].age, equip[i].buts);
+     
+
+       }
+
+       }
+       break;
+       case 4:
+        for (int i = 0; i < count; i++) {
+            
+       if(strcmp(equip[i].poste,"attaquant")==0){
+          printf("\nJoueur %d :|Nom et prénom : %s|Maillot : %d |Poste : %s|Age : %d|Buts : %d\n", 
+                        i + 1, equip[i].nom_et_prenom, equip[i].numeroMaillot, equip[i].poste, equip[i].age, equip[i].buts);
+     
+
+       }
+
+       }
+       break;
+
+      }
+    }else{
+
+  printf("\n !! choix incorect !!\n");
+      }
     }
+
+ }
+
+}
+void modifier_un_joueur(){
+    int choix_modifier;
+     boucle_while=0;
+     int check;
+  while (boucle_while != 1)
+{  
+    
+     printf("\nEnter nom et prenom de jouer pour modifier : ");
+  
+  fgets(nom_et_prenom_pour_modifier, sizeof(nom_et_prenom_pour_modifier), stdin);
+  nom_et_prenom_pour_modifier[strcspn(nom_et_prenom_pour_modifier, "\n")] = '\0';
+  
+    for(check =0;check < count;check++){
+        if(strcmp(equip[check].nom_et_prenom,nom_et_prenom_pour_modifier)==0){
+            trouver =0;
+    printf("modifier le :\n1)Modifier le poste :\n2)Modifier âge: \n3)Modifier le nombre de buts :");
+     printf("\n choiser :");
+     scanf("%d",&choix_modifier);
+
+        if(choix_modifier==1||choix_modifier==2||choix_modifier==3){
+            
+    switch(choix_modifier){
+
+    case 1:
+   
+   clear_buffer();
+   
+            
+           
+    
+     printf("choisir le neuvaux poste :\n1)gardien: \n2)défenseur: \n3)milieu: \n4)attaquant: ");
+     scanf("%d",&choix_modifier);
+     if(choix_modifier==1||choix_modifier==2||choix_modifier==3||choix_modifier==4){
+         switch(choix_de_post){
+       case 1:
+       strcpy(equip[check].poste,"gardien");
+       break;
+       case 2:
+       strcpy(equip[check].poste,"défenseur");
+       break;
+       case 3:
+       strcpy(equip[check].poste,"milieu");
+       break;
+       case 4:
+       strcpy(equip[check].poste,"attaquant");
+       break;
+
+         }
+      }
+      
+      
+  
+    break;
+
+   case 2:
+printf("choisir le neuvaux age pour %s : ",equip[check].nom_et_prenom);
+scanf("%d",&equip[check].age);
+    break;
+printf("choisir le neuvaux nombre de buts pour %s : ",equip[check].nom_et_prenom);
+scanf("%d",&equip[check].buts);
+   case 3:
+     printf("Entre Le Id de joeur : ");
+     scanf("%d",&equip[check].age);
+
+   break;
+   
+   
+    }
+    boucle_while=1;
+   
+    } 
+    }
+    else if(check +1 == count && trouver == 1){
+        printf("!! no trouver !!");}
 }
 
- 	
- 	void menu(){
+    }
+}
+void Rechercher_un_joueur(){
+int choix_Rechercher;
+int id_Rechercher;
+char nom_Rechercher[20];
+ printf("\n choix de recherch:\n1)par id : \n2) par nom :");
+ printf("\n choisir :");
+     scanf("%d",&choix_Rechercher);
+     if(choix_Rechercher==1||choix_Rechercher==2){
+  switch(choix_Rechercher){
+    
+         
+    case 1:
+     printf("\n Entre id :");
+     scanf("%d",&id_Rechercher);
+     if(id_Rechercher<= count&&equip[count].statu){
+
+         printf("\nJoueur :id : %d|Nom et prénom : %s|Maillot : %d |Poste : %s|Age : %d|Buts : %d\n", 
+                       id_Rechercher, equip[id_Rechercher].nom_et_prenom, equip[id_Rechercher].numeroMaillot, equip[id_Rechercher].poste, equip[id_Rechercher].age, equip[id_Rechercher].buts);
+     
+     }else{
+printf("!! no result !!");
+     }
+
+    break;
+
+    case 2:
+    clear_buffer();
+printf("\nEnter nom  pour Rechercher : ");
+  
+  fgets(nom_Rechercher, sizeof(nom_Rechercher), stdin);
+  nom_Rechercher[strcspn(nom_Rechercher, "\n")] = '\0';
+  
+    
+     
+     for(int getnom =0;getnom < count;getnom++){
+        char prenom1[50];
+        int k = 0;
+        int trouv=1;
+            while (equip[getnom].nom_et_prenom[k] != ' ' && equip[getnom].nom_et_prenom[k] != '\0') {
+                prenom1[k] = equip[getnom].nom_et_prenom[k];
+                k++;
+            }
+            prenom1[k] = '\0';
+if(strcmp(prenom1,nom_Rechercher)==0){
+trouv=0;
+  printf("\nJoueur :id : %d|Nom et prénom : %s|Maillot : %d |Poste : %s|Age : %d|Buts : %d\n", 
+                       getnom, equip[getnom].nom_et_prenom, equip[getnom].numeroMaillot, equip[getnom].poste, equip[getnom].age, equip[getnom].buts);
+   
+
+}else if(getnom +1 ==count &&trouv==1){
+
+printf("!! no result !!");
+
+}
+        }
+    
+    break;
+    }
+     }
+     
+    }
+
+    void Supprimer_un_joueur(){
+        int id_pour_Supprimer;
+       printf("\n Entre id pour Supprimer :");
+       scanf("%d",&id_pour_Supprimer);
+     if(id_pour_Supprimer<= count){
+        for(int r =0;r< count ;r++){
+            if(equip[r].id==id_pour_Supprimer){
+
+           equip[r].statu=1;
+
+            }
+        }
+     }
+    } 
+void menu(){
  		int choix;
  		while(1){
  			line();
@@ -169,20 +411,21 @@ void update_contact() {
  		clear_buffer();
  		switch(choix){
  			case 1:
- 			add_contact();
+           
+ 			Ajouter_un_joueur(1);
  			break;
  			case 2:
- 			update_contact();
+ 			modifier_un_joueur();
  			break;
  			case 3:
- 			supprimer();
+ 			Supprimer_un_joueur();
  			break;
  			
  			case 4:
- 			getall_contact();
+ 			 Afficher_un_joueur(1);
  			break;
  			case 5:
- 			rechercher();
+ 			Rechercher_un_joueur();
  			break;
  			
  			
@@ -192,6 +435,9 @@ void update_contact() {
  		}
  		
  		}
+    
 void  main() {
+   struct Equipe e;
    menu();
-}
+
+  }
